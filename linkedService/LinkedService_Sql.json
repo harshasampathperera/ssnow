@@ -5,18 +5,13 @@
 		"parameters": {
 			"dbName": {
 				"type": "string"
-			},
-			"UserName": {
-				"type": "string"
-			},
-			"Password": {
-				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "Integrated Security=False;Data Source=.;Initial Catalog=@{linkedService().dbName};User ID=@{linkedService().UserName};Password=@{linkedService().Password}"
+			"connectionString": "integrated security=False;data source=.;initial catalog=@{linkedService().dbName};user id=sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5OGZhYjllOC01ZWMzLTRjMmMtYmI3OC01ZDczNTU1MGI4YmIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "IROnpromise",
