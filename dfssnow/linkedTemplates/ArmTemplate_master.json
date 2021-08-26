@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dfssnow"
+		},
+		"LinkedService_Sql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LinkedService_Sql'"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP": {
+			"type": "string",
+			"defaultValue": "."
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP": {
+			"type": "string",
+			"defaultValue": "School"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP": {
+			"type": "string",
+			"defaultValue": "p@ssw0rd"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP": {
+			"type": "string",
+			"defaultValue": "Course"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNameToPip": {
+			"type": "string",
+			"defaultValue": "Course1"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "dfssnow_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LinkedService_Sql_connectionString": {
+						"value": "[parameters('LinkedService_Sql_connectionString')]"
+					},
+					"Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP": {
+						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP')]"
+					},
+					"Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP": {
+						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP')]"
+					},
+					"Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP": {
+						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP')]"
+					},
+					"Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP": {
+						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP')]"
+					},
+					"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP": {
+						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP')]"
+					},
+					"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNameToPip": {
+						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_TableNameToPip')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

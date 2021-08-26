@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dfssnow"
+		},
+		"LinkedService_Sql_connectionString": {
+			"value": ""
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP": {
+			"value": "."
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP": {
+			"value": "School"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP": {
+			"value": "sa"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP": {
+			"value": "p@ssw0rd"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP": {
+			"value": "Course"
+		},
+		"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNameToPip": {
+			"value": "Course1"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
