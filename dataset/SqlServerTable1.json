@@ -1,0 +1,31 @@
+{
+	"name": "SqlServerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceOnPromise",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Course_Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Course_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Course_Fee",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Course"
+		}
+	}
+}
