@@ -52,6 +52,23 @@
 				]
 			}
 		],
+		"parameters": {
+			"ServerNamePIP": {
+				"type": "string"
+			},
+			"DBNamePIP": {
+				"type": "string"
+			},
+			"UserNamePIP": {
+				"type": "string"
+			},
+			"PasswordPIP": {
+				"type": "string"
+			},
+			"TableNamePIP": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
