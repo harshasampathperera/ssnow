@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dfssnow"
 		},
+		"LinkedServiceOnPromise_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LinkedServiceOnPromise'"
+		},
 		"LinkedService_Sql_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_Sql'"
@@ -61,6 +65,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LinkedServiceOnPromise_connectionString": {
+						"value": "[parameters('LinkedServiceOnPromise_connectionString')]"
 					},
 					"LinkedService_Sql_connectionString": {
 						"value": "[parameters('LinkedService_Sql_connectionString')]"

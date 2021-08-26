@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "dfssnow"
 		},
+		"LinkedServiceOnPromise_connectionString": {
+			"value": ""
+		},
 		"LinkedService_Sql_connectionString": {
 			"value": ""
 		},

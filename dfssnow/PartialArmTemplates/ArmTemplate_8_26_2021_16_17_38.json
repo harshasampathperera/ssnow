@@ -6,38 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "dfssnow"
-		},
-		"LinkedServiceOnPromise_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LinkedServiceOnPromise'"
-		},
-		"LinkedService_Sql_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LinkedService_Sql'"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP": {
-			"type": "string",
-			"defaultValue": "."
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP": {
-			"type": "string",
-			"defaultValue": "School"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP": {
-			"type": "string",
-			"defaultValue": "sa"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP": {
-			"type": "string",
-			"defaultValue": "p@ssw0rd"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP": {
-			"type": "string",
-			"defaultValue": "Course"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNameToPip": {
-			"type": "string",
-			"defaultValue": "Course1"
 		}
 	},
 	"variables": {
@@ -161,9 +129,7 @@
 				},
 				"annotations": []
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DataSet_ForAll')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
@@ -247,15 +213,13 @@
 						"inputs": [
 							{
 								"referenceName": "SqlServerTable1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "SqlServerTable2",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -265,65 +229,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SqlServerTable1')]",
 				"[concat(variables('factoryId'), '/datasets/SqlServerTable2')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DataSet_ForAll')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LinkedService_Sql",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"ServerName": {
-							"value": "@dataset().ServerNameDS",
-							"type": "Expression"
-						},
-						"dbName": {
-							"value": "@dataset().DBNameDS",
-							"type": "Expression"
-						},
-						"UserName": {
-							"value": "@dataset().NameDS",
-							"type": "Expression"
-						},
-						"Password": {
-							"value": "@dataset().PasswordDS",
-							"type": "Expression"
-						}
-					}
-				},
-				"parameters": {
-					"ServerNameDS": {
-						"type": "string"
-					},
-					"DBNameDS": {
-						"type": "string"
-					},
-					"NameDS": {
-						"type": "string"
-					},
-					"PasswordDS": {
-						"type": "string"
-					},
-					"tableName": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": {
-						"value": "@dataset().tableName",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LinkedService_Sql')]"
 			]
 		},
 		{
@@ -358,9 +263,7 @@
 					"table": "Course"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LinkedServiceOnPromise')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SqlServerTable2')]",
@@ -394,61 +297,7 @@
 					"table": "Course1"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LinkedServiceOnPromise')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LinkedServiceOnPromise')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('LinkedServiceOnPromise_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "IROnpromise",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/IROnpromise')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LinkedService_Sql')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"parameters": {
-					"ServerName": {
-						"type": "string"
-					},
-					"dbName": {
-						"type": "string"
-					},
-					"UserName": {
-						"type": "string"
-					},
-					"Password": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('LinkedService_Sql_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "IROnpromise",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/IROnpromise')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Trigger_Copy')]",
@@ -464,12 +313,12 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"ServerNamePIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP')]",
-							"DBNamePIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP')]",
-							"UserNamePIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP')]",
-							"PasswordPIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP')]",
-							"TableNamePIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP')]",
-							"TableNameToPip": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_TableNameToPip')]"
+							"ServerNamePIP": ".",
+							"DBNamePIP": "School",
+							"UserNamePIP": "sa",
+							"PasswordPIP": "p@ssw0rd",
+							"TableNamePIP": "Course",
+							"TableNameToPip": "Course1"
 						}
 					}
 				],
@@ -499,8 +348,7 @@
 						"pipelineReference": {
 							"referenceName": "pipeline1",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -516,16 +364,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/IROnpromise')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
-			},
-			"dependsOn": []
 		}
 	]
 }
