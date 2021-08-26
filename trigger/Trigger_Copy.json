@@ -3,22 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "TableCopyToCopy",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"ServerNamePIP": ".",
-					"DBNamePIP": "School",
-					"UserNamePIP": "sa",
-					"PasswordPIP": "p@ssw0rd",
-					"TableNamePIP": "Course",
-					"TableNameToPip": "Course1"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
