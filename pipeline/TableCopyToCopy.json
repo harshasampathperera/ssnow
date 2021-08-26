@@ -1,0 +1,116 @@
+{
+	"name": "TableCopyToCopy",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DataSet_ForAll",
+						"type": "DatasetReference",
+						"parameters": {
+							"ServerNameDS": {
+								"value": "@pipeline().parameters.ServerNamePIP",
+								"type": "Expression"
+							},
+							"DBNameDS": {
+								"value": "@pipeline().parameters.DBNamePIP",
+								"type": "Expression"
+							},
+							"NameDS": {
+								"value": "@pipeline().parameters.UserNamePIP",
+								"type": "Expression"
+							},
+							"PasswordDS": {
+								"value": "@pipeline().parameters.PasswordPIP",
+								"type": "Expression"
+							},
+							"tableName": {
+								"value": "@pipeline().parameters.TableNamePIP",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DataSet_ForAll",
+						"type": "DatasetReference",
+						"parameters": {
+							"ServerNameDS": {
+								"value": "@pipeline().parameters.ServerNamePIP",
+								"type": "Expression"
+							},
+							"DBNameDS": {
+								"value": "@pipeline().parameters.DBNamePIP",
+								"type": "Expression"
+							},
+							"NameDS": {
+								"value": "@pipeline().parameters.UserNamePIP",
+								"type": "Expression"
+							},
+							"PasswordDS": {
+								"value": "@pipeline().parameters.PasswordPIP",
+								"type": "Expression"
+							},
+							"tableName": {
+								"value": "@pipeline().parameters.TableNamePIP",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"ServerNamePIP": {
+				"type": "string"
+			},
+			"DBNamePIP": {
+				"type": "string"
+			},
+			"UserNamePIP": {
+				"type": "string"
+			},
+			"PasswordPIP": {
+				"type": "string"
+			},
+			"TableNamePIP": {
+				"type": "string"
+			},
+			"TableNameToPip": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}

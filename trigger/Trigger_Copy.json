@@ -1,0 +1,32 @@
+{
+	"name": "Trigger_Copy",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "TableCopyToCopy",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"ServerNamePIP": ".",
+					"DBNamePIP": "School",
+					"UserNamePIP": "sa",
+					"PasswordPIP": "p@ssw0rd",
+					"TableNamePIP": "Course",
+					"TableNameToPip": "Course1"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2021-08-26T15:44:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
