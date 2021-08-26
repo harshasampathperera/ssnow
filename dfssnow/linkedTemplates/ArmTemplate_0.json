@@ -229,7 +229,7 @@
 										"type": "Expression"
 									},
 									"tableName": {
-										"value": "@pipeline().parameters.TableNamePIP",
+										"value": "@pipeline().parameters.TableNameToPip",
 										"type": "Expression"
 									}
 								}
