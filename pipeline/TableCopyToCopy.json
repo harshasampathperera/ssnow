@@ -106,6 +106,9 @@
 			},
 			"TableNamePIP": {
 				"type": "string"
+			},
+			"TableNameToPip": {
+				"type": "string"
 			}
 		},
 		"annotations": []
