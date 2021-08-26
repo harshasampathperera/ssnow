@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "TableCopyToCopy",
 	"properties": {
 		"activities": [
 			{
@@ -17,11 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"additionalColumns": [
-							{
-								"value": "$$COLUMN:"
-							}
-						],
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -41,13 +36,57 @@
 				"inputs": [
 					{
 						"referenceName": "DataSet_ForAll",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"ServerNameDS": {
+								"value": "@pipeline().parameters.ServerNamePIP",
+								"type": "Expression"
+							},
+							"DBNameDS": {
+								"value": "@pipeline().parameters.DBNamePIP",
+								"type": "Expression"
+							},
+							"NameDS": {
+								"value": "@pipeline().parameters.UserNamePIP",
+								"type": "Expression"
+							},
+							"PasswordDS": {
+								"value": "@pipeline().parameters.PasswordPIP",
+								"type": "Expression"
+							},
+							"tableName": {
+								"value": "@pipeline().parameters.TableNamePIP",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "DataSet_ForAll",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"ServerNameDS": {
+								"value": "@pipeline().parameters.ServerNamePIP",
+								"type": "Expression"
+							},
+							"DBNameDS": {
+								"value": "@pipeline().parameters.DBNamePIP",
+								"type": "Expression"
+							},
+							"NameDS": {
+								"value": "@pipeline().parameters.UserNamePIP",
+								"type": "Expression"
+							},
+							"PasswordDS": {
+								"value": "@pipeline().parameters.PasswordPIP",
+								"type": "Expression"
+							},
+							"tableName": {
+								"value": "@pipeline().parameters.TableNamePIP",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
