@@ -410,8 +410,8 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 2,
-						"startTime": "2021-08-26T17:06:00Z",
-						"timeZone": "UTC"
+						"startTime": "2021-08-26T17:15:00",
+						"timeZone": "Sri Lanka Standard Time"
 					}
 				}
 			},
