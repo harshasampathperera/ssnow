@@ -15,21 +15,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_Sql'"
 		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP": {
-			"type": "string",
-			"defaultValue": "."
-		},
 		"Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP": {
 			"type": "string",
 			"defaultValue": "School"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP": {
-			"type": "string",
-			"defaultValue": "sa"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP": {
-			"type": "string",
-			"defaultValue": "p@ssw0rd"
 		},
 		"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP": {
 			"type": "string",
@@ -72,17 +60,8 @@
 					"LinkedService_Sql_connectionString": {
 						"value": "[parameters('LinkedService_Sql_connectionString')]"
 					},
-					"Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP": {
-						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP')]"
-					},
 					"Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP": {
 						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP')]"
-					},
-					"Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP": {
-						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP')]"
-					},
-					"Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP": {
-						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP')]"
 					},
 					"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP": {
 						"value": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP')]"

@@ -15,21 +15,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_Sql'"
 		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP": {
-			"type": "string",
-			"defaultValue": "."
-		},
 		"Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP": {
 			"type": "string",
 			"defaultValue": "School"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP": {
-			"type": "string",
-			"defaultValue": "sa"
-		},
-		"Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP": {
-			"type": "string",
-			"defaultValue": "p@ssw0rd"
 		},
 		"Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP": {
 			"type": "string",
@@ -79,16 +67,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"parameters": {
-					"ServerName": {
-						"type": "string"
-					},
 					"dbName": {
-						"type": "string"
-					},
-					"UserName": {
-						"type": "string"
-					},
-					"Password": {
 						"type": "string"
 					}
 				},
@@ -115,35 +94,14 @@
 					"referenceName": "LinkedService_Sql",
 					"type": "LinkedServiceReference",
 					"parameters": {
-						"ServerName": {
-							"value": "@dataset().ServerNameDS",
-							"type": "Expression"
-						},
 						"dbName": {
 							"value": "@dataset().DBNameDS",
-							"type": "Expression"
-						},
-						"UserName": {
-							"value": "@dataset().NameDS",
-							"type": "Expression"
-						},
-						"Password": {
-							"value": "@dataset().PasswordDS",
 							"type": "Expression"
 						}
 					}
 				},
 				"parameters": {
-					"ServerNameDS": {
-						"type": "string"
-					},
 					"DBNameDS": {
-						"type": "string"
-					},
-					"NameDS": {
-						"type": "string"
-					},
-					"PasswordDS": {
 						"type": "string"
 					},
 					"tableName": {
@@ -279,20 +237,8 @@
 								"referenceName": "DataSet_ForAll",
 								"type": "DatasetReference",
 								"parameters": {
-									"ServerNameDS": {
-										"value": "@pipeline().parameters.ServerNamePIP",
-										"type": "Expression"
-									},
 									"DBNameDS": {
 										"value": "@pipeline().parameters.DBNamePIP",
-										"type": "Expression"
-									},
-									"NameDS": {
-										"value": "@pipeline().parameters.UserNamePIP",
-										"type": "Expression"
-									},
-									"PasswordDS": {
-										"value": "@pipeline().parameters.PasswordPIP",
 										"type": "Expression"
 									},
 									"tableName": {
@@ -307,20 +253,8 @@
 								"referenceName": "DataSet_ForAll",
 								"type": "DatasetReference",
 								"parameters": {
-									"ServerNameDS": {
-										"value": "@pipeline().parameters.ServerNamePIP",
-										"type": "Expression"
-									},
 									"DBNameDS": {
 										"value": "@pipeline().parameters.DBNamePIP",
-										"type": "Expression"
-									},
-									"NameDS": {
-										"value": "@pipeline().parameters.UserNamePIP",
-										"type": "Expression"
-									},
-									"PasswordDS": {
-										"value": "@pipeline().parameters.PasswordPIP",
 										"type": "Expression"
 									},
 									"tableName": {
@@ -333,16 +267,7 @@
 					}
 				],
 				"parameters": {
-					"ServerNamePIP": {
-						"type": "string"
-					},
 					"DBNamePIP": {
-						"type": "string"
-					},
-					"UserNamePIP": {
-						"type": "string"
-					},
-					"PasswordPIP": {
 						"type": "string"
 					},
 					"TableNamePIP": {
@@ -474,10 +399,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"ServerNamePIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_ServerNamePIP')]",
 							"DBNamePIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_DBNamePIP')]",
-							"UserNamePIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_UserNamePIP')]",
-							"PasswordPIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_PasswordPIP')]",
 							"TableNamePIP": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_TableNamePIP')]",
 							"TableNameToPip": "[parameters('Trigger_Copy_properties_TableCopyToCopy_parameters_TableNameToPip')]"
 						}
@@ -488,7 +410,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 2,
-						"startTime": "2021-08-26T15:44:00Z",
+						"startTime": "2021-08-26T17:06:00Z",
 						"timeZone": "UTC"
 					}
 				}
