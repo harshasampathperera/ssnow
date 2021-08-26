@@ -10,10 +10,7 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"ServerNamePIP": ".",
 					"DBNamePIP": "School",
-					"UserNamePIP": "sa",
-					"PasswordPIP": "p@ssw0rd",
 					"TableNamePIP": "Course",
 					"TableNameToPip": "Course1"
 				}
@@ -24,7 +21,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 2,
-				"startTime": "2021-08-26T15:44:00Z",
+				"startTime": "2021-08-26T17:06:00Z",
 				"timeZone": "UTC"
 			}
 		}

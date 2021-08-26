@@ -5,35 +5,14 @@
 			"referenceName": "LinkedService_Sql",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"ServerName": {
-					"value": "@dataset().ServerNameDS",
-					"type": "Expression"
-				},
 				"dbName": {
 					"value": "@dataset().DBNameDS",
-					"type": "Expression"
-				},
-				"UserName": {
-					"value": "@dataset().NameDS",
-					"type": "Expression"
-				},
-				"Password": {
-					"value": "@dataset().PasswordDS",
 					"type": "Expression"
 				}
 			}
 		},
 		"parameters": {
-			"ServerNameDS": {
-				"type": "string"
-			},
 			"DBNameDS": {
-				"type": "string"
-			},
-			"NameDS": {
-				"type": "string"
-			},
-			"PasswordDS": {
 				"type": "string"
 			},
 			"tableName": {
