@@ -8,25 +8,11 @@
 				"dbName": {
 					"value": "@dataset().DBNameDS",
 					"type": "Expression"
-				},
-				"UserName": {
-					"value": "@dataset().NameDS",
-					"type": "Expression"
-				},
-				"Password": {
-					"value": "@dataset().PasswordDS",
-					"type": "Expression"
 				}
 			}
 		},
 		"parameters": {
 			"DBNameDS": {
-				"type": "string"
-			},
-			"NameDS": {
-				"type": "string"
-			},
-			"PasswordDS": {
 				"type": "string"
 			},
 			"tableName": {
