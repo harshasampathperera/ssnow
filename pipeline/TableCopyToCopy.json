@@ -38,20 +38,8 @@
 						"referenceName": "DataSet_ForAll",
 						"type": "DatasetReference",
 						"parameters": {
-							"ServerNameDS": {
-								"value": "@pipeline().parameters.ServerNamePIP",
-								"type": "Expression"
-							},
 							"DBNameDS": {
 								"value": "@pipeline().parameters.DBNamePIP",
-								"type": "Expression"
-							},
-							"NameDS": {
-								"value": "@pipeline().parameters.UserNamePIP",
-								"type": "Expression"
-							},
-							"PasswordDS": {
-								"value": "@pipeline().parameters.PasswordPIP",
 								"type": "Expression"
 							},
 							"tableName": {
@@ -66,20 +54,8 @@
 						"referenceName": "DataSet_ForAll",
 						"type": "DatasetReference",
 						"parameters": {
-							"ServerNameDS": {
-								"value": "@pipeline().parameters.ServerNamePIP",
-								"type": "Expression"
-							},
 							"DBNameDS": {
 								"value": "@pipeline().parameters.DBNamePIP",
-								"type": "Expression"
-							},
-							"NameDS": {
-								"value": "@pipeline().parameters.UserNamePIP",
-								"type": "Expression"
-							},
-							"PasswordDS": {
-								"value": "@pipeline().parameters.PasswordPIP",
 								"type": "Expression"
 							},
 							"tableName": {
@@ -92,16 +68,7 @@
 			}
 		],
 		"parameters": {
-			"ServerNamePIP": {
-				"type": "string"
-			},
 			"DBNamePIP": {
-				"type": "string"
-			},
-			"UserNamePIP": {
-				"type": "string"
-			},
-			"PasswordPIP": {
 				"type": "string"
 			},
 			"TableNamePIP": {
