@@ -3,10 +3,25 @@
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
-			"sources": [],
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ExcelDS",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "DataSetBlobStorage",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
 			"sinks": [],
 			"transformations": [],
-			"script": ""
+			"script": "source(output(\n\t\tOrderDate as string,\n\t\tRegion as string,\n\t\tRep as string,\n\t\tItem as string,\n\t\tUnits as string,\n\t\t{Unit Cost} as string,\n\t\tTotal as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source2"
 		}
 	}
 }
