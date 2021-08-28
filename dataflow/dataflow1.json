@@ -10,21 +10,15 @@
 						"type": "DatasetReference"
 					},
 					"name": "ExcelCSV"
-				},
-				{
-					"name": "source1"
 				}
 			],
 			"sinks": [],
 			"transformations": [
 				{
 					"name": "Pivot1"
-				},
-				{
-					"name": "Pivot2"
 				}
 			],
-			"script": "source(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> ExcelCSV\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1\nPivot2 pivot(columnNaming: '$N$V',\n\tlateral: true) ~> Pivot1\nExcelCSV pivot(columnNaming: '$N$V',\n\tlateral: true) ~> Pivot2"
+			"script": "source(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ExcelCSV\nExcelCSV pivot(columnNaming: '$N$V',\n\tlateral: true) ~> Pivot1"
 		}
 	}
 }

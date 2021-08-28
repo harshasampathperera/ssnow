@@ -1,0 +1,51 @@
+{
+	"name": "ExcelDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sales Order",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SampleData.xlsx",
+				"folderPath": "Input",
+				"container": "myfiles"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "OrderDate",
+				"type": "String"
+			},
+			{
+				"name": "Region",
+				"type": "String"
+			},
+			{
+				"name": "Rep",
+				"type": "String"
+			},
+			{
+				"name": "Item",
+				"type": "String"
+			},
+			{
+				"name": "Units",
+				"type": "String"
+			},
+			{
+				"name": "Unit Cost",
+				"type": "String"
+			},
+			{
+				"name": "Total",
+				"type": "String"
+			}
+		]
+	}
+}
