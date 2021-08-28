@@ -14,7 +14,7 @@
 			],
 			"sinks": [],
 			"transformations": [],
-			"script": "source(output(\n\t\tOrderDate as string,\n\t\tRegion as string,\n\t\tRep as string,\n\t\tItem as string,\n\t\tUnits as string,\n\t\t{Unit Cost} as string,\n\t\tTotal as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinferDriftedColumnTypes: true,\n\tignoreNoFilesFound: false) ~> source1"
+			"script": "source(output(\n\t\tRegion as string,\n\t\tBinder as double,\n\t\tDesk as short,\n\t\tPen as double,\n\t\t{Pen Set} as double,\n\t\tPencil as double,\n\t\tTotal as double\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinferDriftedColumnTypes: true,\n\tignoreNoFilesFound: false) ~> source1"
 		}
 	}
 }
