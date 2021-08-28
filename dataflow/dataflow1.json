@@ -5,12 +5,26 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"name": "source1"
+					"dataset": {
+						"referenceName": "DataSetBlobStorage",
+						"type": "DatasetReference"
+					},
+					"name": "ExcelCSV"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1"
+			"transformations": [
+				{
+					"name": "Pivot1"
+				},
+				{
+					"name": "Pivot2"
+				},
+				{
+					"name": "Pivot3"
+				}
+			],
+			"script": "source(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinferDriftedColumnTypes: true,\n\tignoreNoFilesFound: false) ~> ExcelCSV\nPivot2 pivot(columnNaming: '$N$V',\n\tlateral: true) ~> Pivot1\nPivot3 pivot(columnNaming: '$N$V',\n\tlateral: true) ~> Pivot2\nExcelCSV pivot(columnNaming: '$N$V',\n\tlateral: true) ~> Pivot3"
 		}
 	}
 }
