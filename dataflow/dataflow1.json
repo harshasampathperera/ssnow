@@ -3,18 +3,10 @@
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
-			"sources": [
-				{
-					"dataset": {
-						"referenceName": "josonDataset",
-						"type": "DatasetReference"
-					},
-					"name": "source1"
-				}
-			],
+			"sources": [],
 			"sinks": [],
 			"transformations": [],
-			"script": "source(output(\n\t\tid as string,\n\t\tproduct as (name as string, modelName as string, manufactore as string)[],\n\t\tprice as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'documentPerLine',\n\tunquotedColumnNames: true) ~> source1"
+			"script": ""
 		}
 	}
 }
