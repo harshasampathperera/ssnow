@@ -8,10 +8,9 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": "Sales Order",
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "SampleData.xlsx",
+				"fileName": "PivotData.xlsx",
 				"folderPath": "Input",
 				"container": "myfiles"
 			},
