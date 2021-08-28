@@ -271,7 +271,7 @@
 						},
 						"id": {
 							"value": {
-								"value": "@activity('Lookup1_copy1').FirstRow.Maxid",
+								"value": "@activity('Lookup1_copy1').FirstRow.maxid ",
 								"type": "Expression"
 							},
 							"type": "Int32"

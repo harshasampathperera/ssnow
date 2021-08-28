@@ -1,0 +1,47 @@
+{
+	"name": "josonDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "sample.json",
+				"folderPath": "Input",
+				"container": "myfiles"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"product": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"modelName": {
+								"type": "string"
+							},
+							"manufactore": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"price": {
+					"type": "integer"
+				}
+			}
+		}
+	}
+}
