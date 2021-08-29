@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DatasetAzureErrorTable",
+						"referenceName": "AzureDataSet",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -26,7 +26,7 @@
 					"name": "AlterRow1"
 				}
 			],
-			"script": "source(output(\n\t\tSno as short,\n\t\tOrderDate as date,\n\t\tRegion as string,\n\t\tRep as string,\n\t\tItem as string,\n\t\tUnits as short,\n\t\t{Unit Cost} as double,\n\t\tTotal as double\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinferDriftedColumnTypes: true,\n\tignoreNoFilesFound: false) ~> source1\nsource1 alterRow(upsertIf(true())) ~> AlterRow1\nAlterRow1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tid as integer,\n\t\terrordesc as string\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:true,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError',\n\tmapColumn(\n\t\t{} = Sno\n\t)) ~> sink1"
+			"script": "source(output(\n\t\tSno as short,\n\t\tOrderDate as date,\n\t\tRegion as string,\n\t\tRep as string,\n\t\tItem as string,\n\t\tUnits as short,\n\t\t{Unit Cost} as double,\n\t\tTotal as double\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinferDriftedColumnTypes: true,\n\tignoreNoFilesFound: false) ~> source1\nsource1 alterRow(upsertIf(true())) ~> AlterRow1\nAlterRow1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tSno as integer,\n\t\tOrderDate as date,\n\t\tRegion as string,\n\t\tRep as string,\n\t\tItem as string,\n\t\tUnits as decimal(8,2),\n\t\tUnitCost as decimal(8,2),\n\t\tTotal as decimal(8,2)\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:true,\n\tkeys:[''],\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError',\n\tmapColumn(\n\t\tSno,\n\t\tOrderDate,\n\t\tRegion,\n\t\tRep,\n\t\tItem,\n\t\tUnits,\n\t\tUnitCost = {Unit Cost},\n\t\tTotal\n\t)) ~> sink1"
 		}
 	}
 }
