@@ -1,0 +1,32 @@
+{
+	"name": "AzureSqlTableDaily",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceAzure",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "amt",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DailyTable"
+		}
+	}
+}
