@@ -29,7 +29,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(variables('FileType'),'Hourly')",
+						"value": "@equals(variables('FileType'),'Hourly.csv')",
 						"type": "Expression"
 					},
 					"ifFalseActivities": [
@@ -109,7 +109,7 @@
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
-										"wildcardFolderPath": "input",
+										"wildcardFolderPath": "Input",
 										"wildcardFileName": {
 											"value": "@pipeline().parameters.filename",
 											"type": "Expression"
