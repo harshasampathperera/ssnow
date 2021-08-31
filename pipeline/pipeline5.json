@@ -1,0 +1,20 @@
+{
+	"name": "pipeline5",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
+		"parameters": {
+			"OutputFolder": {
+				"type": "array",
+				"defaultValue": "[Output1,Output2,OutPut3]"
+			}
+		},
+		"annotations": []
+	}
+}
