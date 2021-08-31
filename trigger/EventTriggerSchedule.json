@@ -1,0 +1,28 @@
+{
+	"name": "EventTriggerSchedule",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline4",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"filename": "@triggerbody.FileName"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/myfiles/blobs/myfile/input",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/74f481c0-6b62-4b99-8a55-41bf9f703d96/resourceGroups/SSNOWRes/providers/Microsoft.Storage/storageAccounts/ssnowstoracc",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
