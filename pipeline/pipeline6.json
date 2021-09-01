@@ -16,7 +16,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": "http://dummy.restapiexample.com/api/v1/employees",
-					"method": "POST",
+					"method": "GET",
+					"linkedServices": [
+						{
+							"referenceName": "LinkedServiceBlobStorage",
+							"type": "LinkedServiceReference"
+						}
+					],
 					"datasets": [
 						{
 							"referenceName": "DataSetBlobStorage",
