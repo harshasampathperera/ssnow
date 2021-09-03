@@ -1,0 +1,33 @@
+{
+	"name": "DatasetBlotStorage2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "department.csv",
+				"folderPath": "Input",
+				"container": "myfiles"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "DpId",
+				"type": "String"
+			},
+			{
+				"name": "DpName",
+				"type": "String"
+			}
+		]
+	}
+}
