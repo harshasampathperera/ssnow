@@ -36,7 +36,7 @@
 					"name": "Aggregate1"
 				}
 			],
-			"script": "source(output(\n\t\tnameId as string,\n\t\tName as string,\n\t\tCountry as string,\n\t\tDepId as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> Employee\nsource(output(\n\t\tDpId as string,\n\t\tDpName as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> Department\nEmployee, Department join(DepId == DpId,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> joinds\njoinds aggregate(groupBy(DpName),\n\t{Total Employee} = count(nameId)) ~> Aggregate1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+			"script": "source(output(\n\t\tnameId as string,\n\t\tName as string,\n\t\tCountry as string,\n\t\tDepId as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> Employee\nsource(output(\n\t\tDpId as string,\n\t\tDpName as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> Department\nEmployee, Department join(DepId == DpId,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> joinds\njoinds aggregate(groupBy(DpName),\n\t{Total Employee} = count(nameId)) ~> Aggregate1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['agregation.cfv'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tmapColumn(\n\t\tDpName,\n\t\t{Total Employee}\n\t),\n\tpartitionBy('hash', 1)) ~> sink1"
 		}
 	}
 }
