@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "emplyee.csv",
+				"fileName": "HR.csv",
 				"folderPath": "Input",
 				"container": "myfiles"
 			},
