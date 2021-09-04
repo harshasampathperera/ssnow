@@ -1,0 +1,24 @@
+{
+	"name": "dataflow6",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DataSetBlobStorage",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "DerivedColumn1"
+				}
+			],
+			"script": "source(output(\n\t\tnameId as string,\n\t\tName as string,\n\t\tCountry as string,\n\t\tDepId as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 derive(Countrynew = iif(isNull(Country), 'UnKnown', upper(Country))) ~> DerivedColumn1"
+		}
+	}
+}
