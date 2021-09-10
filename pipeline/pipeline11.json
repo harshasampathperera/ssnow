@@ -1,0 +1,43 @@
+{
+	"name": "pipeline11",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow9",
+						"type": "DataFlowReference",
+						"parameters": {
+							"countryname": {
+								"value": "'@{pipeline().parameters.CountryName_}'",
+								"type": "Expression"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"parameters": {
+			"CountryName_": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
