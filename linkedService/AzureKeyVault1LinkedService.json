@@ -1,0 +1,10 @@
+{
+	"name": "AzureKeyVault1LinkedService",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://keyvaultharsha.vault.azure.net/"
+		}
+	}
+}
