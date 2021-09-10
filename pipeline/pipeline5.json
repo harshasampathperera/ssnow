@@ -68,13 +68,7 @@
 							"outputs": [
 								{
 									"referenceName": "DSBlobStorageOutput",
-									"type": "DatasetReference",
-									"parameters": {
-										"FolderName": {
-											"value": "@item()",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							]
 						}

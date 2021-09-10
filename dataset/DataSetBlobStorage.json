@@ -33,6 +33,10 @@
 				"type": "String"
 			},
 			{
+				"name": "Salary",
+				"type": "String"
+			},
+			{
 				"name": "DepId",
 				"type": "String"
 			}

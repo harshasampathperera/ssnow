@@ -70,13 +70,7 @@
 									"outputs": [
 										{
 											"referenceName": "DSBlobStorageOutput",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderName": {
-													"value": "@pipeline().parameters.FolderName",
-													"type": "Expression"
-												}
-											}
+											"type": "DatasetReference"
 										}
 									]
 								}
@@ -139,13 +133,7 @@
 									"outputs": [
 										{
 											"referenceName": "DSBlobStorageOutput",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderName": {
-													"value": "@pipeline().parameters.FolderName",
-													"type": "Expression"
-												}
-											}
+											"type": "DatasetReference"
 										}
 									]
 								}
