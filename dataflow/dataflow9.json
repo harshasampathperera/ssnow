@@ -26,7 +26,7 @@
 					"name": "Filter1"
 				}
 			],
-			"script": "source(output(\n\t\tnameId as string,\n\t\tName as string,\n\t\tCountry as string,\n\t\tSalary as short,\n\t\tDepId as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 filter(equals(Country,'india')) ~> Filter1\nFilter1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['CountryName.csv'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('hash', 1)) ~> sink1"
+			"script": "source(output(\n\t\tnameId as string,\n\t\tName as string,\n\t\tCountry as string,\n\t\tSalary as short,\n\t\tDepId as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 filter(equals(Country,'india')) ~> Filter1\nFilter1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['CountryName.csv'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('hash', 1)) ~> sink1"
 		}
 	}
 }
