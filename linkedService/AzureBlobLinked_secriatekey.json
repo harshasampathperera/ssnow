@@ -1,0 +1,17 @@
+{
+	"name": "AzureBlobLinked_secriatekey",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1LinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "secreateblobstorateconnectionstring"
+			}
+		}
+	}
+}
