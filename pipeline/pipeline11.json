@@ -17,13 +17,7 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "dataflow9",
-						"type": "DataFlowReference",
-						"parameters": {
-							"countryname": {
-								"value": "'@{pipeline().parameters.CountryName_}'",
-								"type": "Expression"
-							}
-						}
+						"type": "DataFlowReference"
 					},
 					"compute": {
 						"coreCount": 8,
