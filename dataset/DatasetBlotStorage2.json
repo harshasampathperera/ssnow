@@ -21,11 +21,15 @@
 		},
 		"schema": [
 			{
-				"name": "DpId",
+				"name": "empid",
 				"type": "String"
 			},
 			{
-				"name": "DpName",
+				"name": "empname",
+				"type": "String"
+			},
+			{
+				"name": "city",
 				"type": "String"
 			}
 		]

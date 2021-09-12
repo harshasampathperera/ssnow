@@ -29,7 +29,7 @@
 					"name": "Select1"
 				}
 			],
-			"script": "source(output(\n\t\tempid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 derive(col1 = substring({_col0_},1,5),\n\t\tcol2 = substring({_col0_},6,10),\n\t\tcol3 = substring({_col0_},16,1),\n\t\tcol4 = substring({_col0_},17,8)) ~> DerivedColumn1\nDerivedColumn1 select(mapColumn(\n\t\tcol1,\n\t\tcol2,\n\t\tcol3,\n\t\tcol4\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1\nSelect1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tDpId as string,\n\t\tDpName as string\n\t),\n\tpartitionFileNames:['Fixfiletransform.csv'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('hash', 1)) ~> sink1"
+			"script": "source(output(\n\t\tempid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 derive(col1 = substring({_col0_},1,5),\n\t\tcol2 = substring({_col0_},6,10),\n\t\tcol3 = substring({_col0_},16,1),\n\t\tcol4 = substring({_col0_},17,8)) ~> DerivedColumn1\nDerivedColumn1 select(mapColumn(\n\t\tcol1,\n\t\tcol2,\n\t\tcol3,\n\t\tcol4\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1\nSelect1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tempid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tpartitionFileNames:['Fixfiletransform.csv'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('hash', 1)) ~> sink1"
 		}
 	}
 }
