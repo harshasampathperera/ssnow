@@ -21,23 +21,15 @@
 		},
 		"schema": [
 			{
-				"name": "nameId",
+				"name": "empid",
 				"type": "String"
 			},
 			{
-				"name": "Name",
+				"name": "empname",
 				"type": "String"
 			},
 			{
-				"name": "Country",
-				"type": "String"
-			},
-			{
-				"name": "Salary",
-				"type": "String"
-			},
-			{
-				"name": "DepId",
+				"name": "city",
 				"type": "String"
 			}
 		]
