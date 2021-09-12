@@ -21,10 +21,6 @@
 		},
 		"schema": [
 			{
-				"name": "empid",
-				"type": "String"
-			},
-			{
 				"name": "empname",
 				"type": "String"
 			},

@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "DatasetBlotStorage2",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
 				}
 			],
 			"sinks": [],
@@ -21,7 +28,7 @@
 					"name": "Aggregate1"
 				}
 			],
-			"script": "source(output(\n\t\tid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 derive(dummy = 'dummy') ~> DerivedColumn1\nDerivedColumn1 aggregate() ~> Aggregate1"
+			"script": "source(output(\n\t\tid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source2\nsource1 derive(dummy = 'dummy') ~> DerivedColumn1\nDerivedColumn1 aggregate(groupBy(dummy),\n\tmax = max(id)) ~> Aggregate1"
 		}
 	}
 }
