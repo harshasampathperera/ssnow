@@ -26,9 +26,24 @@
 				},
 				{
 					"name": "Aggregate1"
+				},
+				{
+					"name": "Join1"
+				},
+				{
+					"name": "SurrogateKey1"
+				},
+				{
+					"name": "DerivedColumn2"
+				},
+				{
+					"name": "Select1"
+				},
+				{
+					"name": "Union1"
 				}
 			],
-			"script": "source(output(\n\t\tid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source2\nsource1 derive(dummy = 'dummy') ~> DerivedColumn1\nDerivedColumn1 aggregate(groupBy(dummy),\n\tmax = max(id)) ~> Aggregate1"
+			"script": "source(output(\n\t\tid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source2\nsource1 derive(dummy = 'dummy') ~> DerivedColumn1\nDerivedColumn1 aggregate(groupBy(dummy),\n\tmax = max(id)) ~> Aggregate1\nAggregate1, source2 join(1==1,\n\tjoinType:'cross',\n\tbroadcast: 'auto')~> Join1\nJoin1 keyGenerate(output(id as long),\n\tstartAt: 1L) ~> SurrogateKey1\nSurrogateKey1 derive(id = toInteger(max)+toInteger(id)) ~> DerivedColumn2\nDerivedColumn2 select(mapColumn(\n\t\tid,\n\t\tempname,\n\t\tcity\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1\nsource1, Select1 union(byName: true)~> Union1"
 		}
 	}
 }
