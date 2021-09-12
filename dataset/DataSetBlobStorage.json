@@ -10,13 +10,13 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "FixedFile.csv",
+				"fileName": "emp1.csv",
 				"folderPath": "Input",
 				"container": "myfiles"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": false,
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
