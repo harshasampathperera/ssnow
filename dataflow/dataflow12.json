@@ -20,8 +20,18 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
-			"script": "source(output(\n\t\tempid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\tempid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source2"
+			"transformations": [
+				{
+					"name": "Union1"
+				},
+				{
+					"name": "Aggregate1"
+				},
+				{
+					"name": "Sort1"
+				}
+			],
+			"script": "source(output(\n\t\tempid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\tempid as string,\n\t\tempname as string,\n\t\tcity as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source2\nsource1, source2 union(byName: true)~> Union1\nUnion1 aggregate(groupBy(empid),\n\teach(match(name!='empid'), $$ = first($$))) ~> Aggregate1\nAggregate1 sort(asc(empid, true)) ~> Sort1"
 		}
 	}
 }
