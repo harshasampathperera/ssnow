@@ -18,7 +18,7 @@
 					"name": "DerivedColumn1"
 				}
 			],
-			"script": "source(output(\n\t\t{G1520Sampath   x78787878   } as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 derive() ~> DerivedColumn1"
+			"script": "source(output(\n\t\t{_col0_} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 derive(col1 = substring({_col0_},1,5),\n\t\tcol2 = substring({_col0_},6,10),\n\t\tcol3 = substring({_col0_},16,1),\n\t\tcol4 = substring({_col0_},17,8)) ~> DerivedColumn1"
 		}
 	}
 }
